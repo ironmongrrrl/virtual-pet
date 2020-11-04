@@ -8,25 +8,25 @@ Let me introduce you to my virtual JavaScript pet! It has a name, it ages, it ge
 
 I will update as we go, but this project will help me to... 
 
-Get to grips with NPM
-Practice TDD
-Apply knowledge of objects, constructors and prototypes 
-Re-factor code 
-Practice programmatic thinking 
+- Get to grips with NPM
+- Practice TDD
+- Apply knowledge of objects, constructors and prototypes 
+- Re-factor code 
+- Practice programmatic thinking 
 
 ## Getting Started
 
 To have a look at what I've done: 
 
-- Clone this repository to your local machine by clicking 'clone' and selecting the HTTPS or SSH link
-- Open your terminal, create a folder (mkdir virtual-pet) and within that run git clone <link-from-above>
-- Then run npm init to install the necessary dependencies required for Node.js to run.
+- Clone this repository to your local machine by clicking 'clone' and copying the HTTPS or SSH link
+- Open your terminal, create a folder (mkdir virtual-pet) and within that run git clone //link-from-above//
+- Still within the directory, run npm init to install the necessary dependencies required for Node.js to run.
 - Have a poke around! 
 
 ### Prerequisites
 
-NPM - https://www.npmjs.com
-Jest - https://www.npmjs.com/package/jest
+- NPM - https://www.npmjs.com
+- Jest - https://www.npmjs.com/package/jest
 
 ## Built With
 
