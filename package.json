@@ -1,0 +1,22 @@
+{
+  "name": "virtual-pets-node",
+  "version": "1.0.0",
+  "description": "Lucy Ironmonger's Virtual Pet Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ironmongrrrl/virtual-pet.git"
+  },
+  "author": "Lucy Ironmonger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ironmongrrrl/virtual-pet/issues"
+  },
+  "homepage": "https://github.com/ironmongrrrl/virtual-pet#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
