@@ -1,5 +1,6 @@
-const Pet = require('../src/pet');
-    
+let Pet = require('../src/pet');
+
+// THE PET CONSTRUCTOR //
 describe('constructor', () => {
     let pet;
     pet = new Pet('Fido');
@@ -17,6 +18,7 @@ describe('constructor', () => {
     });
 }); 
 
+// THE GROW UP FUNCTION //
 describe('growUp', () => {
     let pet;
     pet = new Pet('Fido');
@@ -33,8 +35,14 @@ describe('growUp', () => {
     it('decreases the fitness of the pet by 3', () => {
         expect(pet.fitness).toEqual(7);
     })
-})
 
+    it('throws an error if the pet is not alive', () => {
+        pet.age = 30;
+        expect(() => pet.walk()).toThrow('Your pet is no longer alive :(');
+    });
+});
+
+// THE WALK FUNCTION //
 describe('walk', () => {
     let pet;
     beforeEach (() => {
@@ -42,9 +50,9 @@ describe('walk', () => {
     })
            
     it('increases the fitness of the pet by 4', () => {
-        pet.fitness = 0;
+        pet.fitness = 1;
         pet.walk();
-        expect(pet.fitness).toEqual(4);
+        expect(pet.fitness).toEqual(5);
     })
     
     it('increases the fitness of the pet by 4, but tops out at 10', () => {
@@ -52,8 +60,14 @@ describe('walk', () => {
         pet.walk();
         expect(pet.fitness).toEqual(10);
     })
-})
 
+    it('throws an error if the pet is not alive', () => {
+        pet.fitness = 0;
+        expect(() => pet.walk()).toThrow('Your pet is no longer alive :(');
+    });
+});
+
+// THE FEED FUNCTION //
 describe('feed', () => { 
     let pet;
     beforeEach (() => {
@@ -61,9 +75,9 @@ describe('feed', () => {
     })
 
     it('decreases the hunger of the pet by 3', () => {
-        pet.hunger = 10;
+        pet.hunger = 9;
         pet.feed()   
-        expect(pet.hunger).toEqual(7);
+        expect(pet.hunger).toEqual(6);
     })
 
     it('decreases the hunger of the pet by 3 but wont go lower than 0', () => {
@@ -71,8 +85,14 @@ describe('feed', () => {
         pet.feed();
         expect(pet.hunger).toEqual(0);
     })
-})
 
+    it('throws an error if the pet is not alive', () => {
+        pet.hunger = 11;
+        expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
+    });
+});
+
+// THE PET CHECK UP FUNCTION //
 describe('checkUp', () => {
     let pet;
     beforeEach (() => {
@@ -103,4 +123,46 @@ describe('checkUp', () => {
         expect(pet.checkUp()).toEqual('I feel great!');
     })
 
-})
+    it('throws an error if the pet is not alive', () => {
+        pet.hunger = 11;
+        expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
+    });
+});
+
+// THE IS ALIVE GETTER METHOD //
+describe('isAlive', () => {
+    let pet;
+    beforeEach (() => {
+        pet = new Pet('Fido');
+    })
+
+    it('returns false if the pet\'s fitness is 0 or less', () => {
+        pet.fitness = 0;
+        expect(pet.isAlive).toEqual(false);
+    })
+
+    it('returns true if the pet\'s fitness is 1 or more', () => {
+        pet.fitness = 1;
+        expect(pet.isAlive).toEqual(true);
+    })
+
+    it('returns false if the pet\'s hunger is 10 or more', () => {
+        pet.hunger = 11;
+        expect(pet.isAlive).toEqual(false);
+    })
+
+    it('returns true if the pet\'s hunger is 9 or less', () => {
+        pet.hunger = 9;
+        expect(pet.isAlive).toEqual(true);
+    })
+
+    it('returns false if the pet\'s age is 30 or more', () => {
+        pet.age = 30;
+        expect(pet.isAlive).toEqual(false);
+    })
+
+    it('returns true if the pet\'s age is 29 or less', () => {
+        pet.age = 29;
+        expect(pet.isAlive).toEqual(true);
+    });
+});
