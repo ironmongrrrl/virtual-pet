@@ -173,7 +173,7 @@ describe('adoptChild', () => {
     let child = new Pet('Lucy');
     parent.adoptChild(child);
     
-    it('the child will become a child of the parent', () => {
+    it('will add the child as an object on the parent\'s children property, which happens to be an array', () => {
         expect(parent.children).toEqual([{"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": "Lucy"}]);
     })
 });
@@ -182,8 +182,16 @@ describe('adoptChild', () => {
 describe('haveBaby', () => {
     let parent = new Pet('Vee');
     parent.haveBaby('Asher');
+
+    it('will check the parent\'s name is correct', () => {
+        expect(parent.name).toEqual('Vee');
+    })
     
     it('will create a child as a property of the parent', () => {
         expect(parent.children).toEqual([{"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": "Asher"}]);
+    })
+
+    it('will check the first child\'s name is first in the children array', () => {
+        expect(parent.children[0].name).toEqual('Asher');
     })
 });
