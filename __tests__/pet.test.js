@@ -117,7 +117,7 @@ describe('checkUp', () => {
         expect(pet.checkUp()).toEqual('I am hungry AND I need a walk');
     })
 
-    it('If neither the hunger is at 5 or more and the fitness is not at 3 or less, return \"I feel great!\"', () => {
+    it('if neither the hunger is at 5 or more and the fitness is not at 3 or less, return \"I feel great!\"', () => {
         pet.fitness = 4;
         pet.hunger = 4;
         expect(pet.checkUp()).toEqual('I feel great!');
@@ -164,5 +164,26 @@ describe('isAlive', () => {
     it('returns true if the pet\'s age is 29 or less', () => {
         pet.age = 29;
         expect(pet.isAlive).toEqual(true);
-    });
+    })
+});
+
+// ADOPT CHILD FUNCTION // 
+describe('adoptChild', () => {
+    let parent = new Pet('Paul');
+    let child = new Pet('Lucy');
+    parent.adoptChild(child);
+    
+    it('the child will become a child of the parent', () => {
+        expect(parent.children).toEqual([{"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": "Lucy"}]);
+    })
+});
+
+// HAVE BABY FUNCTION // 
+describe('haveBaby', () => {
+    let parent = new Pet('Vee');
+    parent.haveBaby('Asher');
+    
+    it('will create a child as a property of the parent', () => {
+        expect(parent.children).toEqual([{"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": "Asher"}]);
+    })
 });

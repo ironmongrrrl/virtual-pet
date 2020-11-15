@@ -12,6 +12,7 @@ class Pet {
         this.age = 0;
         this.hunger = minimumHunger;  
         this.fitness = maximumFitness;
+        this.children = [];
 };
 
 // THE IS ALIVE GETTER METHOD //
@@ -65,6 +66,22 @@ checkUp() {
     } else if (this.hunger >= petHungry) {
         return 'I am hungry'
     } else return 'I feel great!'
+};
+
+// ADOPT CHILD FUNCTION // 
+adoptChild(child) {
+    if(!this.isAlive) {
+        throw new Error(petDeadMessage);
+    }
+    this.children.push(child);
+};
+
+// HAVE BABY FUNCTION // 
+haveBaby(child) {
+    if(!this.isAlive) {
+        throw new Error(petDeadMessage);
+    }
+    this.children.push(new Pet (child));
 };
 };
 
